@@ -1,0 +1,42 @@
+﻿@page
+@model Employee_Payee_Tax_Core_Web_App.Pages.TaxTables.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Tax Table</h1>
+
+<p>
+    <a class="btn btn-outline-secondary" asp-page="Create">+ Add New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxTable[0].TaxCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxTable[0].TaxPercentage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TaxTable) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxPercentage)
+            </td>
+            <td>
+                <a class="btn btn-outline-secondary" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-outline-secondary" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-outline-secondary" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

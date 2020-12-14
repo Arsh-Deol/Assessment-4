@@ -1,0 +1,62 @@
+﻿@page
+@model Employee_Payee_Tax_Core_Web_App.Pages.SalaryPayments.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Payments with Tax</h1>
+
+<p>
+    <a class="btn btn-outline-secondary" asp-page="Create">+Add New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SalaryPayment[0].Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalaryPayment[0].Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalaryPayment[0].CalculatedTax)
+            </th>
+
+            <th>
+                Salary Per Annum
+            </th>
+            <th>
+                Tax Code
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SalaryPayment) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CalculatedTax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.SalaryPerAnnum)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.TaxCode)
+            </td>
+            <td>
+                <a class="btn btn-outline-secondary"  asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-outline-secondary" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-outline-secondary" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
