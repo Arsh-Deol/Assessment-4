@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System.IO;
 
 namespace Employee_Payee_Tax_Core_Web_App.Migrations
 {
-    public partial class EmployeeTax : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -88,9 +87,6 @@ namespace Employee_Payee_Tax_Core_Web_App.Migrations
                 name: "IX_SalaryPayment_EmployeeId",
                 table: "SalaryPayment",
                 column: "EmployeeId");
-
-            var sqlFile = Path.Combine(".\\DatabaseScripts", @"data.sql");
-            migrationBuilder.Sql(File.ReadAllText(sqlFile));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

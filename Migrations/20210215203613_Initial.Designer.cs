@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Employee_Payee_Tax_Core_Web_App.Migrations
 {
     [DbContext(typeof(Employee_Payee_Tax_DataContext))]
-    [Migration("20200107022347_EmployeeTax")]
-    partial class EmployeeTax
+    [Migration("20210215203613_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
